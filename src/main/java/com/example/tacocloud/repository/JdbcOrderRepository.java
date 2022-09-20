@@ -1,7 +1,6 @@
 package com.example.tacocloud.repository;
 
 import com.example.tacocloud.model.Ingredient;
-import com.example.tacocloud.model.IngredientRef;
 import com.example.tacocloud.model.Taco;
 import com.example.tacocloud.model.TacoOrder;
 import java.sql.Types;
@@ -97,7 +96,7 @@ public class JdbcOrderRepository implements OrderRepository {
       jdbcOperations.update(
           "insert into Ingredient_Ref (ingredient, taco, taco_key) "
               + "values (?, ?, ?)",
-          ingredient, tacoId, key++);
+          ingredient.getId(), tacoId, key++);
     }
   }
 }
