@@ -2,4 +2,9 @@ spring:
   web.resources.chain.cache: false
   datasource:
     generate-unique-name: false
-    name: tacocloud
+    name:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: tacoclouddb
