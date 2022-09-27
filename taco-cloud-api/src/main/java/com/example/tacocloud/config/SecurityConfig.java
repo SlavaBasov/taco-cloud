@@ -4,6 +4,7 @@ import com.example.tacocloud.model.Usr;
 import com.example.tacocloud.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,8 +14,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-
-  private final String DESIGN_PAGE_URI = "/design";
 
   @Bean
   public PasswordEncoder passwordEncoder() {
@@ -33,20 +32,16 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     return http
-//        .csrf().disable()
         .authorizeRequests()
-        .antMatchers(DESIGN_PAGE_URI, "/orders").hasRole("USER")
-        .antMatchers("/", "/h2-console/**", "/**").permitAll()
-//        .and().csrf().ignoringAntMatchers("/h2-console/**", DESIGN_PAGE_URI, "/orders")
-        .and().headers().frameOptions().sameOrigin()
-        .and()
-        .formLogin()
-        .loginPage("/login")
-        .defaultSuccessUrl(DESIGN_PAGE_URI)
-        .and()
-        .logout()
-        .logoutSuccessUrl("/")
-        .and()
+        .antMatchers(HttpMethod.GET, "/api/ingredients").hasRole("USER")
+        .antMatchers("/design", "/orders").hasRole("USER")
+        .antMatchers("/", "/**").permitAll()
+        .anyRequest().authenticated().and()
+        .csrf().ignoringAntMatchers("/h2-console/**", "/api/**")
+        .and().headers().frameOptions().sameOrigin().and() //for displaying frames in h2-console
+        .formLogin().loginPage("/login").defaultSuccessUrl("/design").and()
+        .logout().logoutSuccessUrl("/").and()
+        .httpBasic().and()
         .build();
   }
 }

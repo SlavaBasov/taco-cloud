@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -25,7 +27,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
 
-  private final IngredientRepository ingredientRepo;
+  @Autowired
+  @Qualifier("ingredientRepository")
+  private IngredientRepository ingredientRepo;
+
   public DesignTacoController(IngredientRepository ingredientRepo) {
     this.ingredientRepo = ingredientRepo;
   }
@@ -33,7 +38,7 @@ public class DesignTacoController {
   @ModelAttribute
   public void addIngredientsToModel(Model model) {
     Iterable<Ingredient> ingredients = ingredientRepo.findAll();
-    Type[] types = Ingredient.Type.values();
+    Type[] types = Type.values();
     List<Ingredient> list  = StreamSupport.stream(ingredients.spliterator(),false).collect(Collectors.toList());
     for (Type type : types) {
       model.addAttribute(type.toString().toLowerCase(),
