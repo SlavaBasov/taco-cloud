@@ -1,4 +1,4 @@
-package com.example.tacocloud.model;
+package com.example.model.model;
 
 import java.util.Date;
 import java.util.List;

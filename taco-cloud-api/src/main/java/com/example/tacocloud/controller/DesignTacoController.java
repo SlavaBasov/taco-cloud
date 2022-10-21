@@ -1,16 +1,15 @@
 package com.example.tacocloud.controller;
 
-import com.example.tacocloud.model.Ingredient;
-import com.example.tacocloud.model.Ingredient.Type;
-import com.example.tacocloud.model.Taco;
-import com.example.tacocloud.model.TacoOrder;
-import com.example.tacocloud.repository.IngredientRepository;
+import com.example.model.model.Ingredient;
+import com.example.model.model.Ingredient.Type;
+import com.example.model.model.Taco;
+import com.example.model.model.TacoOrder;
+import com.example.model.repository.IngredientRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,9 +26,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
 
-  @Autowired
   @Qualifier("ingredientRepository")
-  private IngredientRepository ingredientRepo;
+  private final IngredientRepository ingredientRepo;
 
   public DesignTacoController(IngredientRepository ingredientRepo) {
     this.ingredientRepo = ingredientRepo;

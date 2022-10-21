@@ -1,7 +1,7 @@
 package com.example.tacocloud.config;
 
-import com.example.tacocloud.model.Usr;
-import com.example.tacocloud.repository.UserRepository;
+import com.example.model.model.Usr;
+import com.example.model.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -33,7 +33,7 @@ public class SecurityConfig {
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     return http
         .authorizeRequests()
-        .antMatchers(HttpMethod.GET, "/api/ingredients").hasRole("USER")
+        .antMatchers("/api/ingredients/**").hasRole("USER")
         .antMatchers("/design", "/orders").hasRole("USER")
         .antMatchers("/", "/**").permitAll()
         .anyRequest().authenticated().and()

@@ -1,6 +1,6 @@
-package com.example.tacocloud.repository;
+package com.example.model.repository;
 
-import com.example.tacocloud.model.Taco;
+import com.example.model.model.Taco;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;

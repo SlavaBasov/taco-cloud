@@ -1,4 +1,4 @@
-package com.example.tacocloud.model;
+package com.example.model.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

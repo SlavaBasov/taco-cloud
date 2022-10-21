@@ -1,6 +1,6 @@
-package com.example.tacocloud.repository;
+package com.example.model.repository;
 
-import com.example.tacocloud.model.Usr;
+import com.example.model.model.Usr;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

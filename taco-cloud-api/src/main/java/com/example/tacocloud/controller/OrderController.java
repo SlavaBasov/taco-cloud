@@ -1,14 +1,10 @@
 package com.example.tacocloud.controller;
 
-import com.example.tacocloud.model.TacoOrder;
-import com.example.tacocloud.model.Usr;
-import com.example.tacocloud.repository.OrderRepository;
-import com.example.tacocloud.repository.UserRepository;
-import java.net.Authenticator;
-import java.security.Principal;
+import com.example.model.model.TacoOrder;
+import com.example.model.model.Usr;
+import com.example.model.repository.OrderRepository;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;

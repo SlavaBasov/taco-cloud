@@ -1,7 +1,7 @@
 package com.example.tacocloud.controller;
 
-import com.example.tacocloud.model.Taco;
-import com.example.tacocloud.repository.TacoRepository;
+import com.example.model.model.Taco;
+import com.example.model.repository.TacoRepository;
 import java.util.Optional;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

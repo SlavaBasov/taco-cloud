@@ -1,12 +1,12 @@
 package com.example.tacocloud.config;
 
-import com.example.tacocloud.model.Ingredient;
-import com.example.tacocloud.model.Ingredient.Type;
-import com.example.tacocloud.model.Taco;
-import com.example.tacocloud.model.Usr;
-import com.example.tacocloud.repository.IngredientRepository;
-import com.example.tacocloud.repository.TacoRepository;
-import com.example.tacocloud.repository.UserRepository;
+import com.example.model.model.Ingredient;
+import com.example.model.model.Ingredient.Type;
+import com.example.model.model.Taco;
+import com.example.model.model.Usr;
+import com.example.model.repository.IngredientRepository;
+import com.example.model.repository.TacoRepository;
+import com.example.model.repository.UserRepository;
 import java.util.Arrays;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
