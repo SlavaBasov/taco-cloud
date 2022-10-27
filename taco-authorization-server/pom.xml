@@ -7,14 +7,17 @@
 		<artifactId>taco-cloud</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
+
 	<groupId>com.example.server</groupId>
 	<artifactId>taco-authorization-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>taco-authorization-server</name>
 	<description>taco-authorization-server</description>
+
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

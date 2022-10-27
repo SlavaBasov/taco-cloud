@@ -14,9 +14,9 @@
   <version>1.0-SNAPSHOT</version>
 
   <modules>
+    <module>taco-cloud-model</module>
     <module>taco-cloud-api</module>
     <module>taco-authorization-server</module>
-    <module>taco-cloud-model</module>
   </modules>
 
   <properties>
